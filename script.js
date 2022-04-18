@@ -23,15 +23,19 @@ $('.description').each(function () {
     // If for if its behind
 })
 
-var events = [];
+// var events = [];
 
-function storeEvents() {
-    localStorage.setItem("events", JSON.stringify(events));
-    console.log(storeEvents())
-}
+// function storeEvents() {
+//     localStorage.setItem("events", JSON.stringify(events));
+//     console.log(storeEvents())
+// }
 
-eventList.addEventListener("click", function(event) {
-    var element = event.target
+$('.description').each(function(){
+    
+})
 
-
+$('.saveBtn').click(function(event) {
+    var element = $(event.target)
+    localStorage.setItem(element.parent().attr("id"),element.siblings(".description").val())
+    console.log(element.parent())
 });
