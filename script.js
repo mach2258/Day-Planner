@@ -31,11 +31,15 @@ $('.description').each(function () {
 // }
 
 $('.description').each(function(){
-    
+    if(localStorage.getItem($(this).attr("id"))===null){
+        return
+    }else {
+        $(this).val(localStorage.getItem($(this).attr("id")))
+    }
 })
 
 $('.saveBtn').click(function(event) {
     var element = $(event.target)
-    localStorage.setItem(element.parent().attr("id"),element.siblings(".description").val())
+    localStorage.setItem(element.parent().children('textarea').attr("id"),element.siblings(".description").val())
     console.log(element.parent())
 });
